@@ -192,8 +192,10 @@ n = int(input('Введите количество долек в длину: '))
 m = int(input('Введите количество долек в ширину: ')) # m = number_of_segments_width
 k = int(input('Сколько долек вы хотите отломить за один разлом: ')) # k = break_off_segments
 
-if n * m < k or k == n * m:
+if n * m < k:
     print(f'{n} {m} {k} -> no')
+elif m * n == k:
+    print(f'Можно не ломать, вся шоколадка Ваша)))')
 elif k % m == 0 or k % n == 0:
     print(f'{n} {m} {k} -> yes')
 else:
