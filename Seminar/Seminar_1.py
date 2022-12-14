@@ -54,8 +54,7 @@
 # else:
 #     print("no")
 
-# ------------------------------------------------------ ДОМАШНЯЯ РАБОТА -----------------------------------------------------------------------------------------------
-
+# ---------------------------------------------------------------------------------------------- ДОМАШНЯЯ РАБОТА ---------------------------------------------------------------------------------------------------
 
 # Задача 2 ===========================================================================================
 # Найдите сумму цифр трехзначного числа.
@@ -64,8 +63,9 @@
 # 100 -> 1 (1 + 0 + 0)
 
 # ПЕРВОЕ РЕШЕНИЕ +++++
-n = 123
-seсond_namber = n
+import random
+number_of_segments_length = random.randint(100, 999)
+seсond_namber = number_of_segments_length
 sum_digits = 0
 while seсond_namber != 0:
     sum_digits += (seсond_namber % 10)
@@ -73,21 +73,44 @@ while seсond_namber != 0:
 else:
     print('Пожалуй')
     print('Хватит))')
-print(F'{n} -> {sum_digits} ({n // 100}\
-        + {n % 100 // 10} + {n % 10})')
+print(F'{number_of_segments_length} -> {sum_digits} ({number_of_segments_length // 100} \
++ {number_of_segments_length % 100 // 10} + {number_of_segments_length % 10})')
 
 
 # ВТОРОЕ РЕШЕНИЕ +++++
-nam = 100
-sun_nam = 0
+import random
+num = random.randint(100, 999)
+sun_num = 0
 
-def Digits_Sum(first_namber, second_namber):
-    while first_namber != 0:
-        second_namber += (first_namber % 10)
-        first_namber //= 10
-    return second_namber
+def Digits_Sum(first_number, second_number):
+    while first_number != 0:
+        second_number += (first_number % 10)
+        first_number //= 10
+    return second_number
 
-print(f'{nam} -> {Digits_Sum(nam, sun_nam)}')
+print(f'{num} -> {Digits_Sum(num, sun_num)}')
+
+
+# ТРЕТЬЕ РЕШЕНИЕ +++++
+def Get_Number():
+    while True:
+        get_number = input(
+            'Введите целое, положительное, трехзначенное число число: ')
+        if get_number.isdigit() and len(get_number) == 3:
+            return get_number
+
+sum_number = int(Get_Number())
+
+def Digits_Sum(first_number):
+    second_number = 0
+    while first_number != 0:
+        second_number += (first_number % 10)
+        first_number //= 10
+    return second_number
+
+print(f'{sum_number} -> {Digits_Sum(sum_number)} ({sum_number // 100} \
++ {sum_number % 100 // 10} + {sum_number % 10})')
+
 
 # Задача 4 ==========================================================================================
 # Петя, Катя и Сережа делают из бумаги журавликов. Вместе они сделали S журавликов.
@@ -122,8 +145,10 @@ print(Number_of_Birds(a)) # в ответе + появляется строка 
 
 
 # Задача 6 =============================================================================================
-# Вы пользуетесь общественным транспортом? Вероятно, вы расплачивались за проезд и получали билет с номером.
-# Счастливым билетом называют такой билет с шестизначным номером, где сумма первых трех цифр равна сумме последних трех.
+# Вы пользуетесь общественным транспортом?
+# Вероятно, вы расплачивались за проезд и получали билет с номером.
+# Счастливым билетом называют такой билет с шестизначным номером,
+# где сумма первых трех цифр равна сумме последних трех.
 # Т.е. билет с номером 385916 – счастливый, т.к. 3+8+5=9+1+6.
 # Вам требуется написать программу, которая проверяет счастливость билета.
 # Пример:
@@ -132,25 +157,25 @@ print(Number_of_Birds(a)) # в ответе + появляется строка 
 
 # ПЕРВОЕ РЕШЕНИЕ +++++
 from random import randint
-n = [randint(0,9) for x in range(6)]
-n1 = n[0]+n[1]+n[2]
-n2 = n[3]+n[4]+n[5]
+number_of_segments_length = [randint(0,9) for x in range(6)]
+n1 = number_of_segments_length[0]+number_of_segments_length[1]+number_of_segments_length[2]
+n2 = number_of_segments_length[3]+number_of_segments_length[4]+number_of_segments_length[5]
 if n1 == n2:
-    print(f'{n} {n1} = {n2} -> yes')
+    print(f'{number_of_segments_length} {n1} = {n2} -> yes')
 else:
-    print(f'{n} {n1} ≠ {n2} -> no')
+    print(f'{number_of_segments_length} {n1} ≠ {n2} -> no')
 
 # [6, 2, 0, 1, 2, 5] 8 = 8 -> yes
 # [2, 0, 5, 4, 9, 4] 7 ≠ 17 -> no
 
 # ВТОРОЕ РЕШЕНИЕ +++++
-n = 123456
-if (n // 100000) + (n // 10000 % 10)\
-    +(n // 1000 % 10) == (n // 100 % 10)\
-    + (n // 10 % 10) + (n %10):
-    print(f'{n} -> yes')
+number_of_segments_length = 385916
+if (number_of_segments_length // 100000) + (number_of_segments_length // 10000 % 10)\
+    +(number_of_segments_length // 1000 % 10) == (number_of_segments_length // 100 % 10)\
+    + (number_of_segments_length // 10 % 10) + (number_of_segments_length %10):
+    print(f'{number_of_segments_length} -> yes')
 else:
-    print(f'{n} -> no')
+    print(f'{number_of_segments_length} -> no')
 
 # 385916 -> yes
 # 123456 -> no
@@ -163,12 +188,13 @@ else:
 # 3 2 4 -> yes
 # 3 2 1 -> no
 
-n = int(input('Введите количество долек в длину: '))
-m = int(input('Введите количество долек в ширину: '))
-k = int(input('Сколько долек вы хотите отломить за один разлом: '))
+n = int(input('Введите количество долек в длину: ')) # n = number_of_segments_length
+m = int(input('Введите количество долек в ширину: ')) # m = number_of_segments_width
+k = int(input('Сколько долек вы хотите отломить за один разлом: ')) # k = break_off_segments
+
 if n * m < k or k == n * m:
-    print('NO')
+    print(f'{n} {m} {k} -> no')
 elif k % m == 0 or k % n == 0:
-    print('YES')
+    print(f'{n} {m} {k} -> yes')
 else:
-    print('NO')
+    print(f'{n} {m} {k} -> no')
