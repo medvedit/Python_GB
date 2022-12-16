@@ -22,7 +22,8 @@ print(Factorial(num))
 
 # Input:     5
 # Output:  6
-num = int(input())
+num_fb = int(input('Введите число фибоначчи: '))
+
 def fibonache(n):
     # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377 кажде число фибоначчи
     # 1  2  2  4  5  6  7  8   9   10  11  12  13   14   15  порядковый номер числа фибоначчи
@@ -30,18 +31,20 @@ def fibonache(n):
         return 1
     if n == 1:
         return 2
-    number0=0
-    number1=1
-    count=2
+    number0 = 0
+    number1 = 1
+    count = 2
     while n >= number1:
         if n == number1:
             return count
-        temp=number1
+        temp = number1
         number1 += number0
-        number0=temp
+        number0 = temp
         count += 1
     return -1
-fibonache(num)
+
+
+print(f'Порядковый номер в системе Фибоначчи числа {num_fb} равен {fibonache(num_fb)}')
 
 # Задача №13
 # Уставшие от необычно теплой зимы, жители решили узнать,
@@ -77,22 +80,8 @@ fibonache(num)
 # Требуется вывести все целые степени двойки(т.е. числа вида 2k), не превосходящие числа N.
 
 
-
-
 # ======================
-fib1=1
-fib2=1
 
-n=int(input('Номер элемента ряда Фибоначчи: '))
-
-i=0
-while i < n - 2:
-    fib_sum=fib1 + fib2
-    fib1=fib2
-    fib2=fib_sum
-    i=i + 1
-
-print("Значение этого элемента:", fib2)
 # ===================================================
 # Задача №13
 # Уставшие от необычно теплой зимы, жители решили узнать,
