@@ -342,6 +342,6 @@ def data_type(x):
         return 23
     else:
         return
-print(data_type(arg)) # => 23
+print(data_type([arg])) # => 23
 print(type(data_type(arg))) # => <class 'int'>
 
