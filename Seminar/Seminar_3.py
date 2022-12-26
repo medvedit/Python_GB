@@ -1,29 +1,137 @@
-RUSSET=set('абвгд.....я')
-LATSET=set('abcde.....z')
+# # Задача №17: ----------------------------------------------------------
+# # Дан список чисел. Определите, сколько в нем встречается различных чисел.
 
-def isLat(word):
-    latin = 0 < len(set(word.lower())&LATSET)
-    russian = 0 == len(set(word.lower())&RUSSET)
-    return latin and russian
+# print()
+# a = 8
+# b = -3
+# c = 4
+# def Number_Arrey(x, min, max):
+#     import random
+#     m = []
+#     for i in range(0, x):
+#         random_number = round(random.randint(min, max))
+#         m.append(random_number)
+#     return m
+
+# d = (Number_Arrey(a, b, c))
+# # print(d)
+# # print()
+# f = set(d)
+# # print(f)
+# print(f'В списке {d} встречается {len(f)} различных чисел(а). Повторения исключены.')
+# print()
 
 
-RUSSET=set('абвгд.....я')
-LATSET=set('abcde.....z')
+# # Задача №19: -------------------------------------------------
+# # Дана последовательность из N целых чисел и число K.
+# # Необходимо сдвинуть всю последовательность (сдвиг - циклический) на K элементов вправо,
+# # K – положительное число.
+# # Input: [1, 2, 3, 4, 5] k = 2
+# # Output: [4, 5, 1, 2, 3]
 
-def getLanguage(word):
-    '''
-    0 - mixed
-    1 - russian
-    2 - latin
-    '''
-    latin = 0 < len(set(word.lower())&LATSET)
-    russian = 0 < len(set(word.lower())&RUSSET)
+# # Вапиант 1:
+# n = 2
+# m = [1, 2, 3, 4, 5]
+# print(m)
+# for i in range(0, n):
+#     m.insert(0, m[-1])
+#     m.pop(-1)
 
-    if latin and not russian:
-        return 2
-    elif russian and not latin:
-        return 1
-    else:
-        return 0
+# print(f'{m} -> сдвиг на {n} элемента(ов)')
+# print()
 
-        
+# # Вариант 2:
+# a = int(input('Введите колличество элементов в списке: '))
+# b = -10
+# c = 10
+
+# def Number_Arrey(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+#     import random
+#     m = []
+#     for i in range(0, x):
+#         random_number = round(random.randint(min, max))
+#         m.append(random_number)
+#     return m
+
+# s = Number_Arrey(a, b, c)
+# print(s)
+# g = int(input('Введите на сколько идексов сдигать >>> :'))
+
+# def Number_Of_Elements_Right_Shift(x, y): # Метод создания свига вправо на x - колличество элементов, y - список list
+#     for i in range(x):
+#         temp = y.pop(-1)
+#         y.insert(0, temp)
+#     return y
+
+# print(Number_Of_Elements_Right_Shift(g, s))
+
+
+# # Задача №2: ---------------------------------------------------------
+# # Напишите программу для печати всех уникальных значений в словаре.
+# # Input:  {"I": "S001", "II": "S002", "III": "S001", "IV": "S005", "V": "S005", "VI":"S009", "VII": "S007"}]
+# # Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
+# print()
+# dictionary = \
+#     {
+#        "I": "S001",
+#        "II": "S002",
+#        "III": "S001",
+#        "IV": "S005",
+#        "V": "S005",
+#        "VI":"S009",
+#        "VII": "S007"
+#     }
+# print(dictionary.values())
+# print(type(dictionary))
+# print()
+# dictionary_B = dictionary.values
+# print(set(dictionary_B()))
+
+# # Задача №23: -----------------------------------------------------
+# # Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
+# # Input: [0, -1, 5, 2, 3]
+# # Output: 2
+
+# import os
+# os.system('clear')
+
+
+# f = [-1, 0, -1, 5, 2, 3, 10, 10, 5]
+# l = 0
+# for i in range(0, len(f)-1):
+#     if f[i] < f[i+1]:
+#         l += 1
+
+# print(f)
+# print()
+# print(l)
+
+#================================================================================================= Домашнее задание ========================================================================================================
+
+# Задача 16:
+# Требуется вычислить, сколько раз встречается некоторое число X в массиве A[1..N].
+# Пользователь вводит натуральное число N – количество элементов в массиве и число, которое необходимо проверить - X.
+# Заполните массив случайными натуральными числами от 1 до N/2.
+# Выведите, сколько раз X встречается в массиве.
+# Ввод: 5
+# Ввод: 1
+# 1 2 1 2 2
+# Вывод: 2
+
+import os
+os.system('clear')
+
+a = int(input('Введите колличество элементов в списке: '))
+b = -10
+c = 10
+
+def Number_Arrey(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+    import random
+    m = []
+    for i in range(0, x):
+        random_number = round(random.randint(min, max))
+        m.append(random_number)
+    return m
+
+arrey = Number_Arrey(a, b, c)
+
