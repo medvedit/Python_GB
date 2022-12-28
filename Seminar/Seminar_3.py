@@ -1,110 +1,110 @@
-# # Задача №17: ----------------------------------------------------------
-# # Дан список чисел. Определите, сколько в нем встречается различных чисел.
+# Задача №17: ----------------------------------------------------------
+# Дан список чисел. Определите, сколько в нем встречается различных чисел.
 
+print()
+a = 8
+b = -3
+c = 4
+def Number_Arrey(x, min, max):
+    import random
+    m = []
+    for i in range(0, x):
+        random_number = round(random.randint(min, max))
+        m.append(random_number)
+    return m
+
+d = (Number_Arrey(a, b, c))
+# print(d)
 # print()
-# a = 8
-# b = -3
-# c = 4
-# def Number_Arrey(x, min, max):
-#     import random
-#     m = []
-#     for i in range(0, x):
-#         random_number = round(random.randint(min, max))
-#         m.append(random_number)
-#     return m
-
-# d = (Number_Arrey(a, b, c))
-# # print(d)
-# # print()
-# f = set(d)
-# # print(f)
-# print(f'В списке {d} встречается {len(f)} различных чисел(а). Повторения исключены.')
-# print()
-
-
-# # Задача №19: -------------------------------------------------
-# # Дана последовательность из N целых чисел и число K.
-# # Необходимо сдвинуть всю последовательность (сдвиг - циклический) на K элементов вправо,
-# # K – положительное число.
-# # Input: [1, 2, 3, 4, 5] k = 2
-# # Output: [4, 5, 1, 2, 3]
-
-# # Вапиант 1:
-# n = 2
-# m = [1, 2, 3, 4, 5]
-# print(m)
-# for i in range(0, n):
-#     m.insert(0, m[-1])
-#     m.pop(-1)
-
-# print(f'{m} -> сдвиг на {n} элемента(ов)')
-# print()
-
-# # Вариант 2:
-# a = int(input('Введите колличество элементов в списке: '))
-# b = -10
-# c = 10
-
-# def Number_Arrey(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
-#     import random
-#     m = []
-#     for i in range(0, x):
-#         random_number = round(random.randint(min, max))
-#         m.append(random_number)
-#     return m
-
-# s = Number_Arrey(a, b, c)
-# print(s)
-# g = int(input('Введите на сколько идексов сдигать >>> :'))
-
-# def Number_Of_Elements_Right_Shift(x, y): # Метод создания свига вправо на x - колличество элементов, y - список list
-#     for i in range(x):
-#         temp = y.pop(-1)
-#         y.insert(0, temp)
-#     return y
-
-# print(Number_Of_Elements_Right_Shift(g, s))
-
-
-# # Задача №2: ---------------------------------------------------------
-# # Напишите программу для печати всех уникальных значений в словаре.
-# # Input:  {"I": "S001", "II": "S002", "III": "S001", "IV": "S005", "V": "S005", "VI":"S009", "VII": "S007"}]
-# # Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
-# print()
-# dictionary = \
-#     {
-#        "I": "S001",
-#        "II": "S002",
-#        "III": "S001",
-#        "IV": "S005",
-#        "V": "S005",
-#        "VI":"S009",
-#        "VII": "S007"
-#     }
-# print(dictionary.values())
-# print(type(dictionary))
-# print()
-# dictionary_B = dictionary.values
-# print(set(dictionary_B()))
-
-# # Задача №23: -----------------------------------------------------
-# # Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
-# # Input: [0, -1, 5, 2, 3]
-# # Output: 2
-
-# import os
-# os.system('clear')
-
-
-# f = [-1, 0, -1, 5, 2, 3, 10, 10, 5]
-# l = 0
-# for i in range(0, len(f)-1):
-#     if f[i] < f[i+1]:
-#         l += 1
-
+f = set(d)
 # print(f)
-# print()
-# print(l)
+print(f'В списке {d} встречается {len(f)} различных чисел(а). Повторения исключены.')
+print()
+
+
+# Задача №19: -------------------------------------------------
+# Дана последовательность из N целых чисел и число K.
+# Необходимо сдвинуть всю последовательность (сдвиг - циклический) на K элементов вправо,
+# K – положительное число.
+# Input: [1, 2, 3, 4, 5] k = 2
+# Output: [4, 5, 1, 2, 3]
+
+# Вапиант 1:
+n = 2
+m = [1, 2, 3, 4, 5]
+print(m)
+for i in range(0, n):
+    m.insert(0, m[-1])
+    m.pop(-1)
+
+print(f'{m} -> сдвиг на {n} элемента(ов)')
+print()
+
+# Вариант 2:
+a = int(input('Введите колличество элементов в списке: '))
+b = -10
+c = 10
+
+def Number_Arrey(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+    import random
+    m = []
+    for i in range(0, x):
+        random_number = round(random.randint(min, max))
+        m.append(random_number)
+    return m
+
+s = Number_Arrey(a, b, c)
+print(s)
+g = int(input('Введите на сколько идексов сдигать >>> :'))
+
+def Number_Of_Elements_Right_Shift(x, y): # Метод создания свига вправо на x - колличество элементов, y - список list
+    for i in range(x):
+        temp = y.pop(-1)
+        y.insert(0, temp)
+    return y
+
+print(Number_Of_Elements_Right_Shift(g, s))
+
+
+# Задача №2: ---------------------------------------------------------
+# Напишите программу для печати всех уникальных значений в словаре.
+# Input:  {"I": "S001", "II": "S002", "III": "S001", "IV": "S005", "V": "S005", "VI":"S009", "VII": "S007"}]
+# Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
+print()
+dictionary = \
+    {
+       "I": "S001",
+       "II": "S002",
+       "III": "S001",
+       "IV": "S005",
+       "V": "S005",
+       "VI":"S009",
+       "VII": "S007"
+    }
+print(dictionary.values())
+print(type(dictionary))
+print()
+dictionary_B = dictionary.values
+print(set(dictionary_B()))
+
+# Задача №23: -----------------------------------------------------
+# Дан массив, состоящий из целых чисел. Напишите программу, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
+# Input: [0, -1, 5, 2, 3]
+# Output: 2
+
+import os
+os.system('clear')
+
+
+f = [-1, 0, -1, 5, 2, 3, 10, 10, 5]
+l = 0
+for i in range(0, len(f)-1):
+    if f[i] < f[i+1]:
+        l += 1
+
+print(f)
+print()
+print(l)
 
 #================================================================================================= Домашнее задание ========================================================================================================
 
@@ -208,6 +208,7 @@ print(f'Ближайшее число к {number} в списке {arrey} явл
 # Ввод: ноутбук
 # Вывод: 12
 
+# Вариант 1 -------------------------------------------
 dictionary = \
 {
 'a':1, 'e':1, 'i':1, 'l':1, 'n':1, 'o':1, 'r':1, 's':1, 't':1, 'u':1,
@@ -227,10 +228,25 @@ dictionary = \
 }
 
 word = input('Введите слово -> ')
-word = word.lower()
+word = word.lower() # Все буквы в нижний регистр
 result = 0
 for i in word:
     result += dictionary[i]
 
 print(f'Стоимость введенного вами слова: -> {result}')
 
+# Вариант 2 --------------------------------------
+points_en = {1: 'AEIOULNSTR', 2: 'DG', 3: 'BCMP', 4: 'FHVWY', 5: 'K', 8: 'JZ', 10: 'QZ'}
+points_ru = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 8: 'ШЭЮ', 10: 'ФЩЪ'}
+word = input().upper()  # переводим все буквы в верхний регистр
+count = 0
+for i in word:
+    if i in 'QWERTYUIOPASDFGHJKLZXCVBNM':
+        for j in points_en:
+            if i in points_en[j]:
+                count = count + j
+    else:
+        for j in points_ru:
+            if i in points_ru[j]:
+                count = count + j
+print(count)
