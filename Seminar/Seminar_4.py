@@ -5,22 +5,25 @@
 # Input: a a a b c a a d c d d
 # Output: a a_1 a_2 b c a_3 a_4 d c_1 d_1 d_2
 
+import os
+import re
 string_abc = 'a a a b c A a d c D d'
 
-def Number_Characters_String(word): # Метод подсчета симолов в строке
+
+def Number_Characters_String(word):  # Метод подсчета симолов в строке
     res = ''  # Создали строкавую переменную
     data = {}  # Создали пустой словарь
     array = word.lower().split()  # разделили строку на список подстрок по разделителю
     print(array)
     for i in array:  # идем по всем символам
         if i in data:  # если символ есть в в словаре data, то выполняется строка ниже, иначе переходим else
-            data[i] += 1  # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
-        # в строковый результат записываем символ + разделитель + str порядковый номер + пробел
-            res += i + '_' + str(data[i]) + ' '
+            data[i] += 1 # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
+            res += i + '_' + str(data[i]) + ' ' # в строковый результат записываем символ + разделитель + str порядковый номер + пробел
         else:
-            data[i] = 0  # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
+            data[i] = 0 # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
             res += i + ' '  # в строковый результат записываем символ + пробел
     return res
+
 
 print(Number_Characters_String(string_abc))
 
@@ -33,22 +36,21 @@ print(Number_Characters_String(string_abc))
 # Input: She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure.So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells
 # Output: 13
 
-import re
-import os
 os.system('clear')
 
 string = 'She sells sea shells on the sea shore The shells that she sells are sea shells I\'m sure.So if she sells sea shells on the sea shore I\'m sure that the shells are sea shore shells'
 print(string)
 print()
+
 string = string.replace('.', " ") # что бы убрать точку и сделать пробел мажду двумя словами ( sure.So )
 
-def Number_of_Words_Text(string_in):
-    string_out = re.sub(r'[!,."\']','', string_in) # Удаляем все символы из строки, не создовая доплнительных пробелов.
+
+def Number_of_Words_Text(string_in):  # Удаляем все символы из строки, не создовая доплнительных пробелов.
+    string_out = re.sub(r'[!,."\']', '', string_in)
     word_amount = {}
     count_word = 0
-    count_unique_word= 0
-    string_test = string_out.lower().split()
-    # print(string_out) # можно проверить
+    count_unique_word = 0
+    string_test = string_out.lower().split() # print(string_out) # можно проверить
     print()
     print('Каждое слово + количество раз встретилось в тексте.')
 
@@ -58,7 +60,7 @@ def Number_of_Words_Text(string_in):
         else:
             word_amount[i] = 1
 
-    for item in word_amount: # for (k,v) in dictionary.items():
+    for item in word_amount:  # for (k,v) in dictionary.items():
         print(f'{item} = {word_amount[item]}') # print('{}: {}'.format(item, dictionary[item]))
     print()
 
@@ -94,9 +96,8 @@ while n != 0:
 print(max_number)
 
 # Вариант "свой"(от ученика, игнорирующего переподавателя..)
-
 n = int(input('введи число N:'))
-if n!=0:
+if n != 0:
     max_number = n
 while n != 0:
     if max_number < n:
@@ -123,7 +124,6 @@ while n != 0:
 # Output: 11 6
 # 6 12
 
-import os
 os.system('clear')
 
 length_set1 = int(input('Введите длину набора №1: '))
@@ -131,7 +131,8 @@ length_set2 = int(input('Введите длину набора №2: '))
 num_min = -19
 num_max = 50
 
-def Number_Arrey(x, min, max): # заполнение рандом
+
+def Number_Arrey(x, min, max):  # заполнение рандом
     import random
     m = []
     for i in range(0, x):
@@ -139,24 +140,27 @@ def Number_Arrey(x, min, max): # заполнение рандом
         m.append(random_number)
     return m
 
+
 first_set = set(Number_Arrey(length_set1, num_min, num_max)) # преобразуем в множество
-second_set = set(Number_Arrey(length_set2, num_min, num_max)) # преобразуем в множество
+second_set = set(Number_Arrey(length_set2, num_min, num_max))  # преобразуем в множество
 print(first_set)
 print(second_set)
 print()
-common_intersection = first_set.intersection(second_set) # находим пересечение данных
+common_intersection = first_set.intersection(second_set)  # находим пересечение данных
 
 # end_set = sorted(common_intersection) # сортировка множества для вывода с помощью sorted
 # print(end_set)
 
 final_list = list(common_intersection)
 
-def Sort_Increase(number_list): # метод сортировки чисел по возрастанию
+
+def Sort_Increase(number_list):  # метод сортировки чисел по возрастанию
     for i in range(len(number_list)):
         for j in range(i + 1, len(number_list)):
             if number_list[i] > number_list[j]:
                 number_list[i], number_list[j] = number_list[j], number_list[i]
     return number_list
+
 
 print(Sort_Increase(final_list))
 
@@ -180,14 +184,14 @@ print(Sort_Increase(final_list))
 # 4 2 3 1
 # Output: 9
 
-import os
 os.system('clear')
 
 shrub_amount = int(input('Введите клоичество кустов на грядке: '))
 num_min = 1
 num_max = 956
 
-def Number_Arrey(x, min, max): # заполнение рандом
+
+def Number_Arrey(x, min, max):  # заполнение рандом
     import random
     m = []
     for i in range(0, x):
@@ -195,10 +199,12 @@ def Number_Arrey(x, min, max): # заполнение рандом
         m.append(random_number)
     return m
 
+
 shrub_lenght = Number_Arrey(shrub_amount, num_min, num_max)
 
 print(shrub_lenght)
 print()
+
 
 def Maximum_Sum_Three(number_list):
     sum_max = 0
@@ -208,5 +214,6 @@ def Maximum_Sum_Three(number_list):
         if shrub_lenght[0] + shrub_lenght[-1] + shrub_lenght[-2] > sum_max:
             sum_max = shrub_lenght[0] + shrub_lenght[-1] + shrub_lenght[-2]
     return sum_max
+
 
 print(Maximum_Sum_Three(shrub_lenght))
