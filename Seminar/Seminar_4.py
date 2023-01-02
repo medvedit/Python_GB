@@ -95,17 +95,16 @@ while n != 0:
         max_number = n
 print(max_number)
 
-# Вариант "свой"(от ученика, игнорирующего переподавателя..)
+# # Вариант "свой"(от ученика, игнорирующего переподавателя..)
 n = int(input('введи число N:'))
 if n != 0:
     max_number = n
-while n != 0:
-    if max_number < n:
-        max_number = n
+    while n != 0:
         n = int(input('введи следуещее число N:'))
-        print('максимальное число {}'.format(max_number))
-    else:
-        print('чисел нет')
+        if max_number < n:
+            max_number = n
+    print('максимальное число {}'.format(max_number))
+        
 
 
 # ========================================================================================================= Домашняя работа ===========================================================
@@ -124,7 +123,7 @@ while n != 0:
 # Output: 11 6
 # 6 12
 
-os.system('clear')
+# os.system('clear')
 
 length_set1 = int(input('Введите длину набора №1: '))
 length_set2 = int(input('Введите длину набора №2: '))
@@ -184,7 +183,7 @@ print(Sort_Increase(final_list))
 # 4 2 3 1
 # Output: 9
 
-os.system('clear')
+# os.system('clear')
 
 shrub_amount = int(input('Введите клоичество кустов на грядке: '))
 num_min = 1
