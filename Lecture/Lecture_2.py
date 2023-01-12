@@ -15,8 +15,8 @@
 
 # *********************************************
 # один из вариантов создания файла, работы с ним, с автоматическим разрывом соединения по зваершении работы кода.
-
-with open('file.txt', 'a') as data:
+with open('/Users/Medwed_SA/Desktop/Education/Python/Знакомство с языком Python/Lecture_end_Seminare/Python_GB/Lecture/file.txt', 'a') as data:
+# with open('file.txt', 'a') as data:
     data.write('line 1664')
     data.write('line 2')
 
@@ -24,7 +24,7 @@ with open('file.txt', 'a') as data:
 # один из вариантов создания файла, работы с ним, с принудительным закрытием связи с файлом .txt путем команды data.close()
 
 colors = ['red', 'green', 'blue']
-data = open('file.txt', 'a') # Создаем файл file.txt , создается он в корневой, первой папке.
+data = open('/Users/Medwed_SA/Desktop/Education/Python/Знакомство с языком Python/Lecture_end_Seminare/Python_GB/Lecture/file.txt', 'a') # Создаем файл file.txt , создается он в корневой, первой папке.
 data.writelines(colors) # Заносим текст из переменной colors, разделителей не будет.
                         # Приповторном запуске, данные будут дописываться.
 data.write('\n112233\n')
@@ -33,7 +33,7 @@ data.close() # Закрываем, разрываем связь с файлот
 # ***********************************
 #                                                 exit() # отключает выполнение кода ниже.
 # Считываем данные и файла
-path = 'file.txt' # Создаем путь
+path = '/Users/Medwed_SA/Desktop/Education/Python/Знакомство с языком Python/Lecture_end_Seminare/Python_GB/Lecture/file.txt' # Создаем путь
 data = open(path, 'r') # Открываем
 for line in data: # С помощью цикла проходим по всем элементам
     print(line) # Выводим в консоль содержимое файла
