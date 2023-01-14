@@ -224,8 +224,3 @@ if (a>=b):
 else:
     print(sum_num(b,a))
 
-
-
-
-
-
