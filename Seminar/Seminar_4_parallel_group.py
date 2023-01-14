@@ -1,123 +1,123 @@
-# # Задача №1 ______________________________________________________________
-# # Задайте строку из набора чисел. Напишите программу, которая покажет наибольшее и наименьшее число.
-# # В качестве разделителя используйте пробел.
+# Задача №1 ______________________________________________________________
+# Задайте строку из набора чисел. Напишите программу, которая покажет наибольшее и наименьшее число.
+# В качестве разделителя используйте пробел.
 
-# list_str = '1, 4, 34. 554: -56; 0, 58" -2, 49'
+list_str = '1, 4, 34. 554: -56; 0, 58" -2, 49'
 
-# def user_input(user_srt: str) -> list:
-#     new_str = user_srt.split()
-#     list_out = []
+def user_input(user_srt: str) -> list:
+    new_str = user_srt.split()
+    list_out = []
 
-#     for i in range(len(new_str)):
-#         new_str[i] = new_str[i].strip(',.:"`~_!?')
-#         if new_str[i].replace('-', '', 1).isdigit():
-#             list_out.append(new_str[i])
-#     return list_out
+    for i in range(len(new_str)):
+        new_str[i] = new_str[i].strip(',.:"`~_!?')
+        if new_str[i].replace('-', '', 1).isdigit():
+            list_out.append(new_str[i])
+    return list_out
 
-# def user_output(list_sort):
-#     if list_sort:
-#         return min(list_sort, key=int), max(list_sort, key=int) # Всторенный метод сортировки min или max -> метод(где, что бы воспринимал цифры в строке как единое целое)
-#     return 'Получен не список цифр...'
-
-
-# print(f'Строка зашла в первую функцию -> {list_str}')
-# ls = (user_input(list_str))
-# print(f'Убрали лишние разделители. Строка на выходе из первой функции -> {ls}')
-# min_max = user_output(ls)
-# print(f'Min end Max -> {min_max}')
-
-# # Задача №2 ______________________________________________________________
-# # Найдите корни квадратного уравнения Ax**2 + Bx + C = 0, С помощью модуля. Запросите значения Фб Иб С 3 раза.
-# # Уравнения и корни запишите в файл.
-
-# from math import sqrt
-
-# def discriminant(a, b, c):
-#     D = b**2-4*a*c
-#     with open('/Users/Medwed_SA/Desktop/Education/Python/Знакомство с языком Python/Lecture_end_Seminare/Python_GB/Seminar/task2_file.txt', 'a', encoding="utf-8") as my_file:
-#         my_file.write(F'{a}x**2 + {b}x + {c} = 0\n')
-#         if D > 0:
-#             x_1 = (-b+sqrt(D))/(2*a)
-#             x_2 = (-b-sqrt(D))/(2*a)
-#             # my_file.write(f'Первый корень -> {x_1}\nВторой корень -> {x_2}\n')
-#             print(f'Первый корень -> {x_1:.2f}\nВторой корень -> {x_2:.2f}', file=my_file)
-#         elif D == 0:
-#             # x = -b/(2*a)
-#             my_file.write(f'Один корень -> {-b/(2*a):.2f}\n')
-#         else:
-#             my_file.write('Нет корней...\n')
-
-# discriminant(3, 12, -12)
-
-# # Задача №3 ______________________________________________________________
-# # На вход программе подается число N. Программа печатает численны треугольник. Используем вложенные циклы.
-
-# x = int(input('Введите число: '))
-# for i in range(1, x + 1):
-#     for j in range(i):
-#         print(i, end='')
-#     print()
-
-# # ____________________________________________________________________________________ HOMEWORK ____________________________________________________________________
-
-# # Задача №1: --------------------------------------------------------------------------------------------------------------
-# # # Вычислить число с заданной точностью d.
-
-# from decimal import Decimal
-
-# number = Decimal(input('Введите число: '))
-# precision_number = Decimal(input('Введите точность: '))
-
-# number_out = number.quantize(Decimal(precision_number))
-
-# print(number_out)
-# # Ответ: Введите число: 1234.92349234324
-# #        Введите точность: 4949399595.234
-# #        1234.923
-
-# # Задача №2: --------------------------------------------------------------------------------------------------------------
-# # Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
-
-# n = 99800
-
-# def prime_factors_number(n:int) -> list:
-#     out = []
-#     for i in range(2, n + 1):
-#         while not n % i:
-#             n //= i
-#             out.append(i)
-#             if n == 1:
-#                 break
-#     return out
-
-# print(n) # 99800
-# print(prime_factors_number(n)) # [2, 2, 2, 5, 5, 499]
-
-# # Задача №3: --------------------------------------------------------------------------------------------------------------
-# # Задайте последовательность чисел. Напишите программу,
-# # которая выведет список неповторяющихся элементов последовательности, в том же порядке.
+def user_output(list_sort):
+    if list_sort:
+        return min(list_sort, key=int), max(list_sort, key=int) # Всторенный метод сортировки min или max -> метод(где, что бы воспринимал цифры в строке как единое целое)
+    return 'Получен не список цифр...'
 
 
-# from random import uniform
+print(f'Строка зашла в первую функцию -> {list_str}')
+ls = (user_input(list_str))
+print(f'Убрали лишние разделители. Строка на выходе из первой функции -> {ls}')
+min_max = user_output(ls)
+print(f'Min end Max -> {min_max}')
+
+# Задача №2 ______________________________________________________________
+# Найдите корни квадратного уравнения Ax**2 + Bx + C = 0, С помощью модуля. Запросите значения Фб Иб С 3 раза.
+# Уравнения и корни запишите в файл.
+
+from math import sqrt
+
+def discriminant(a, b, c):
+    D = b**2-4*a*c
+    with open('/Users/Medwed_SA/Desktop/Education/Python/Знакомство с языком Python/Lecture_end_Seminare/Python_GB/Seminar/task2_file.txt', 'a', encoding="utf-8") as my_file:
+        my_file.write(F'{a}x**2 + {b}x + {c} = 0\n')
+        if D > 0:
+            x_1 = (-b+sqrt(D))/(2*a)
+            x_2 = (-b-sqrt(D))/(2*a)
+            # my_file.write(f'Первый корень -> {x_1}\nВторой корень -> {x_2}\n')
+            print(f'Первый корень -> {x_1:.2f}\nВторой корень -> {x_2:.2f}', file=my_file)
+        elif D == 0:
+            # x = -b/(2*a)
+            my_file.write(f'Один корень -> {-b/(2*a):.2f}\n')
+        else:
+            my_file.write('Нет корней...\n')
+
+discriminant(3, 12, -12)
+
+# Задача №3 ______________________________________________________________
+# На вход программе подается число N. Программа печатает численны треугольник. Используем вложенные циклы.
+
+x = int(input('Введите число: '))
+for i in range(1, x + 1):
+    for j in range(i):
+        print(i, end='')
+    print()
+
+# ____________________________________________________________________________________ HOMEWORK ____________________________________________________________________
+
+# Задача №1: --------------------------------------------------------------------------------------------------------------
+# # Вычислить число с заданной точностью d.
+
+from decimal import Decimal
+
+number = Decimal(input('Введите число: '))
+precision_number = Decimal(input('Введите точность: '))
+
+number_out = number.quantize(Decimal(precision_number))
+
+print(number_out)
+# Ответ: Введите число: 1234.92349234324
+#        Введите точность: 4949399595.234
+#        1234.923
+
+# Задача №2: --------------------------------------------------------------------------------------------------------------
+# Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
+
+n = 99800
+
+def prime_factors_number(n:int) -> list:
+    out = []
+    for i in range(2, n + 1):
+        while not n % i:
+            n //= i
+            out.append(i)
+            if n == 1:
+                break
+    return out
+
+print(n) # 99800
+print(prime_factors_number(n)) # [2, 2, 2, 5, 5, 499]
+
+# Задача №3: --------------------------------------------------------------------------------------------------------------
+# Задайте последовательность чисел. Напишите программу,
+# которая выведет список неповторяющихся элементов последовательности, в том же порядке.
 
 
-# def random_list(count):
-#     while count < 0 or count <= 1:
-#         return 'Вы хотите разобрать стоку? Пожалуйста...'
-#     rnd_list = [(int(uniform(1, count))) for i in range(count)]
-#     return rnd_list
+from random import uniform
 
 
-# def non_repeating(val_ls):
-#     result = []
-#     for i in range(len(val_ls)):
-#         if val_ls.count(val_ls[i]) == 1:
-#             result.append(val_ls[i])
-#     return result
+def random_list(count):
+    while count < 0 or count <= 1:
+        return 'Вы хотите разобрать стоку? Пожалуйста...'
+    rnd_list = [(int(uniform(1, count))) for i in range(count)]
+    return rnd_list
 
-# list_out = random_list(int(input('Введите количество элементов в списке: ')))
-# print(list_out)
-# print(f'Эти элементы в встречаются один раз -> {non_repeating(list_out)}')
+
+def non_repeating(val_ls):
+    result = []
+    for i in range(len(val_ls)):
+        if val_ls.count(val_ls[i]) == 1:
+            result.append(val_ls[i])
+    return result
+
+list_out = random_list(int(input('Введите количество элементов в списке: ')))
+print(list_out)
+print(f'Эти элементы в встречаются один раз -> {non_repeating(list_out)}')
 
 # *Задача №4: --------------------------------------------------------------------------------------------------------------
 # Задана натуральная степень k. Сформировать случайным образом список коэффициентов (от 0 до 10) многочлена, записать в файл полученный
