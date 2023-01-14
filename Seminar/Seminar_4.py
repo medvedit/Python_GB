@@ -10,17 +10,17 @@ import re
 string_abc = 'a a a b c A a d c D d'
 
 
-def Number_Characters_String(word):  # Метод подсчета симолов в строке
-    res = ''  # Создали строкавую переменную
+def Number_Characters_String(word):  # Метод подсчета символов в строке
+    res = ''  # Создали строковую переменную
     data = {}  # Создали пустой словарь
     array = word.lower().split()  # все символы строки в нижний регистр, разделили строку на список подстрок по разделителю
     print(array)
     for i in array:  # идем по всем символам
         if i in data:  # если символ есть в в словаре data, то выполняется строка ниже, иначе переходим else
-            data[i] += 1 # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
+            data[i] += 1 # к символу (в данный момент это ключ в словаре) добавляем значение (порядковый номер)
             res += i + '_' + str(data[i]) + ' ' # в строковый результат записываем символ + разделитель + str порядковый номер + пробел
         else:
-            data[i] = 0 # к символу (в данный момент это ключь в словаре) добавляем значение (порядковый номер)
+            data[i] = 0 # к символу (в данный момент это ключ в словаре) добавляем значение (порядковый номер)
             res += i + ' '  # в строковый результат записываем символ + пробел
     return res
 
@@ -29,7 +29,7 @@ print(Number_Characters_String(string_abc))
 
 # Задача №27 ------------------------------------------------------------
 # Пользователь вводит текст(строка).
-# Словом считается последовательность непробельных символов идущих подряд,
+# Словом считается последовательность символов без пробелов, идущих подряд,
 # слова разделены одним или большим числом пробелов.
 # Определите, сколько различных слов содержится в этом тексте.
 
@@ -42,10 +42,10 @@ string = 'She sells sea shells on the sea shore The shells that she sells are se
 print(string)
 print()
 
-string = string.replace('.', " ") # что бы убрать точку и сделать пробел мажду двумя словами ( sure.So )
+string = string.replace('.', " ") # что бы убрать точку и сделать пробел между двумя словами ( sure.So )
 
 
-def Number_of_Words_Text(string_in):  # Удаляем все символы из строки, не создовая доплнительных пробелов.
+def Number_of_Words_Text(string_in):  # Удаляем все символы из строки, не создавая дополнительных пробелов.
     string_out = re.sub(r'[!,."\']', '', string_in)
     word_amount = {}
     count_word = 0
@@ -86,7 +86,7 @@ Number_of_Words_Text(string)
 # Они решили так: у кого будет меньше ошибок в коде, тот и выиграл спор.
 # За помощью товарищи обратились к Вам, студентам.
 
-# Прервый ариант Вани ЛУЧШИЙ !!! стр 89 исправил 1000 на n , и стр 92 сменил знак с > на < И ВСЁ!
+# Первый вариант Вани ЛУЧШИЙ !!! стр 89 исправил 1000 на n , и стр 92 сменил знак с > на < И ВСЁ!
 n = int(input())
 max_number = n
 while n != 0:
@@ -95,12 +95,12 @@ while n != 0:
         max_number = n
 print(max_number)
 
-# # Вариант "свой"(от ученика, игнорирующего переподавателя..)
+# # Вариант "свой"(от ученика, игнорирующего преподавателя..)
 n = int(input('введи число N:'))
 if n != 0:
     max_number = n
     while n != 0:
-        n = int(input('введи следуещее число N:'))
+        n = int(input('введи следующее число N:'))
         if max_number < n:
             max_number = n
     print('максимальное число {}'.format(max_number))
@@ -131,7 +131,7 @@ num_min = -19
 num_max = 50
 
 
-def Number_Arrey(x, min, max):  # заполнение рандом
+def Number_Array(x, min, max):  # заполнение рандом
     import random
     m = []
     for i in range(0, x):
@@ -140,8 +140,8 @@ def Number_Arrey(x, min, max):  # заполнение рандом
     return m
 
 
-first_set = set(Number_Arrey(length_set1, num_min, num_max)) # преобразуем в множество
-second_set = set(Number_Arrey(length_set2, num_min, num_max))  # преобразуем в множество
+first_set = set(Number_Array(length_set1, num_min, num_max)) # преобразуем в множество
+second_set = set(Number_Array(length_set2, num_min, num_max))  # преобразуем в множество
 print(first_set)
 print(second_set)
 print()
@@ -185,12 +185,12 @@ print(Sort_Increase(final_list))
 
 # os.system('clear')
 
-shrub_amount = int(input('Введите клоичество кустов на грядке: '))
+shrub_amount = int(input('Введите количество кустов на грядке: '))
 num_min = 1
 num_max = 956
 
 
-def Number_Arrey(x, min, max):  # заполнение рандом
+def Number_Array(x, min, max):  # заполнение рандом
     import random
     m = []
     for i in range(0, x):
@@ -199,20 +199,20 @@ def Number_Arrey(x, min, max):  # заполнение рандом
     return m
 
 
-shrub_lenght = Number_Arrey(shrub_amount, num_min, num_max)
+shrub_length = Number_Array(shrub_amount, num_min, num_max)
 
-print(shrub_lenght)
+print(shrub_length)
 print()
 
 
 def Maximum_Sum_Three(number_list):
     sum_max = 0
-    for i in range(len(shrub_lenght)-1):
-        if sum_max < shrub_lenght[i] + shrub_lenght[i-1] + shrub_lenght[i+1]:
-            sum_max = shrub_lenght[i] + shrub_lenght[i-1] + shrub_lenght[i+1]
-        if shrub_lenght[0] + shrub_lenght[-1] + shrub_lenght[-2] > sum_max:
-            sum_max = shrub_lenght[0] + shrub_lenght[-1] + shrub_lenght[-2]
+    for i in range(len(shrub_length)-1):
+        if sum_max < shrub_length[i] + shrub_length[i-1] + shrub_length[i+1]:
+            sum_max = shrub_length[i] + shrub_length[i-1] + shrub_length[i+1]
+        if shrub_length[0] + shrub_length[-1] + shrub_length[-2] > sum_max:
+            sum_max = shrub_length[0] + shrub_length[-1] + shrub_length[-2]
     return sum_max
 
 
-print(Maximum_Sum_Three(shrub_lenght))
+print(Maximum_Sum_Three(shrub_length))
