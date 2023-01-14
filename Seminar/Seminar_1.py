@@ -1,4 +1,4 @@
-#12.12.2022 # Грохаем алгоритмы Адитья
+#12.12.2022
 # За день машина проезжает n километров. Сколько суток нужно, чтобы проехать маршрут длиной m километров?
 # При решении этой задачи нельзя пользоваться условной инструкцией if и циклами.
 # Input: # n = 700       # Output:  2
@@ -64,11 +64,11 @@ else:
 # ПЕРВОЕ РЕШЕНИЕ +++++
 import random
 number_of_segments_length = random.randint(100, 999)
-seсond_namber = number_of_segments_length
+second_number = number_of_segments_length
 sum_digits = 0
-while seсond_namber != 0:
-    sum_digits += (seсond_namber % 10)
-    seсond_namber //= 10
+while second_number != 0:
+    sum_digits += (second_number % 10)
+    second_number //= 10
 else:
     print('Пожалуй')
     print('Хватит))')
