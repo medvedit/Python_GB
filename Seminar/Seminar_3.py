@@ -5,7 +5,7 @@ print()
 a = 8
 b = -3
 c = 4
-def Number_Arrey(x, min, max):
+def Number_Array(x, min, max):
     import random
     m = []
     for i in range(0, x):
@@ -13,7 +13,7 @@ def Number_Arrey(x, min, max):
         m.append(random_number)
     return m
 
-d = (Number_Arrey(a, b, c))
+d = (Number_Array(a, b, c))
 # print(d)
 # print()
 f = set(d)
@@ -29,7 +29,7 @@ print()
 # Input: [1, 2, 3, 4, 5] k = 2
 # Output: [4, 5, 1, 2, 3]
 
-# Вапиант 1:
+# Вариант 1:
 n = 2
 m = [1, 2, 3, 4, 5]
 print(m)
@@ -41,11 +41,11 @@ print(f'{m} -> сдвиг на {n} элемента(ов)')
 print()
 
 # Вариант 2:
-a = int(input('Введите колличество элементов в списке: '))
+a = int(input('Введите количество элементов в списке: '))
 b = -10
 c = 10
 
-def Number_Arrey(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+def Number_Array(x, min, max): # Создание рандомного списка по количеству элементов, min и max значения.
     import random
     m = []
     for i in range(0, x):
@@ -53,11 +53,11 @@ def Number_Arrey(x, min, max): # Создание рандомного спис�
         m.append(random_number)
     return m
 
-s = Number_Arrey(a, b, c)
+s = Number_Array(a, b, c)
 print(s)
-g = int(input('Введите на сколько идексов сдигать >>> :'))
+g = int(input('Введите на сколько индексов сдигать >>> :'))
 
-def Number_Of_Elements_Right_Shift(x, y): # Метод создания свига вправо на x - колличество элементов, y - список list
+def Number_Of_Elements_Right_Shift(x, y): # Метод создания сдвига вправо на x - количество элементов, y - список list
     for i in range(x):
         temp = y.pop(-1)
         y.insert(0, temp)
@@ -121,11 +121,11 @@ print(l)
 import os
 os.system('clear')
 
-a = int(input('Введите колличество элементов в списке: '))
+a = int(input('Введите количество элементов в списке: '))
 b = 1
 c = 3
 
-def Random_List(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+def Random_List(x, min, max): # Создание рандомного списка по количеству элементов, min и max значения.
     import random
     m = []
     for i in range(0, x):
@@ -133,14 +133,14 @@ def Random_List(x, min, max): # Создание рандомного списк
         m.append(random_number)
     return m
 
-arrey = Random_List(a, b, c)
-print(arrey)
+array = Random_List(a, b, c)
+print(array)
 
-check_number = int(input('Введите чило от 1 до 3: '))
+check_number = int(input('Введите число от 1 до 3: '))
 count = 0
 
-for i in range(0, len(arrey)):
-    if arrey[i] == check_number:
+for i in range(0, len(array)):
+    if array[i] == check_number:
         count += 1
 
 print(count)
@@ -158,11 +158,11 @@ print(count)
 # 1 2 1 8 9 6 5 4 3 4
 # Вывод: 6
 
-a = int(input('Введите колличество элементов в списке: '))
+a = int(input('Введите количество элементов в списке: '))
 b = 1
 c = 9
 
-def Random_List(x, min, max): # Создание рандомного списка по колличеству элементов, min и max значения.
+def Random_List(x, min, max): # Создание рандомного списка по количеству элементов, min и max значения.
     import random
     m = []
     for i in range(0, x):
@@ -170,8 +170,8 @@ def Random_List(x, min, max): # Создание рандомного списк
         m.append(random_number)
     return m
 
-arrey = Random_List(a, b, c)
-print(arrey)
+array = Random_List(a, b, c)
+print(array)
 
 number = int(input('Введите целое число: '))
 
@@ -181,7 +181,7 @@ def nearest_min_value(arr, value):
         if abs(i - value) < abs(result - value):
             result = i
     return result
-print(f'Ближайшее число к {number} в списке {arrey} является {nearest_min_value(arrey, number)}')
+print(f'Ближайшее число к {number} в списке {array} является {nearest_min_value(array, number)}')
 
 
 # Задача 20: ---------------------------------------------------
