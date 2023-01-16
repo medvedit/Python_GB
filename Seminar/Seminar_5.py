@@ -19,6 +19,9 @@
 # Вывод:
 # ok
 
+import math
+from decimal import Decimal
+from math import pi
 values = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 transformed_values = list(map(lambda x: x, values))
 if values == transformed_values:
@@ -51,15 +54,16 @@ print(transformed_values)
 
 orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
 
+
 def find_farthest_orbit(orbits):
     s = [3.14*max(x)*min(x) if max(x) != min(x) else 0 for x in orbits]
-    return(orbits[s.index(max(s))])
+    return (orbits[s.index(max(s))])
+
 
 print(*find_farthest_orbit(orbits))
 
 # Или
 
-from math import pi
 
 # S=pi*a*b
 orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
@@ -89,12 +93,13 @@ print(find_farthest_orbit(orbits))
 
 # Или
 
-from math import pi
 
 def find_farthest_orbit(list_of_orbits):
-    temp_list = ((pi * i[0] * i[1], i[0], i[1]) for i in list_of_orbits if i[0] != i[1])
-    MAX =  max(temp_list)
+    temp_list = ((pi * i[0] * i[1], i[0], i[1])
+                 for i in list_of_orbits if i[0] != i[1])
+    MAX = max(temp_list)
     return MAX[1], MAX[2]
+
 
 orbits = [(1, 3), (2.5, 10), (7, 2), (10, 10), (4, 3)]
 print(*find_farthest_orbit(orbits))
@@ -110,28 +115,34 @@ print(*find_farthest_orbit(orbits))
 
 values = [0, 3, 12, 6]
 
+
 def same_by(func, val):
     return True if len(set(map(func, val))) == 1 or 0 else False
 
-print(same_by(lambda x: x%2, values))
+
+print(same_by(lambda x: x % 2, values))
 
 # Или...
 
 values = [0, 2, 12, 6]
 
-def same_by(characteristic, objects):
-    f = set(list(map(characteristic,objects)))
-    return len(f)==1
 
-print(same_by(lambda x: x%2, values))
+def same_by(characteristic, objects):
+    f = set(list(map(characteristic, objects)))
+    return len(f) == 1
+
+
+print(same_by(lambda x: x % 2, values))
 
 # Или...
 
 values = [0, 2, 10, 7]
 
+
 def same_by(f, list_num):
     # return set(map(f, list_num))
     return True if len(set(map(f, list_num))) == 1 else False
+
 
 print(values)
 print(same_by(lambda x: x % 2, values))
@@ -143,11 +154,9 @@ print(same_by(lambda x: x % 2, values))
 # Пример:
 # при d = 0.001, π = 3.141    0.1 ≤ d ≤ 0.00000000001
 
-from decimal import Decimal
-import math
 
 number = Decimal(math.pi)
-precision_number = Decimal(input('Введите точность: '))
+precision_number = Decimal(input('Введите точность для вывода числа π: '))
 
 number_out = number.quantize(Decimal(precision_number))
 
@@ -158,7 +167,8 @@ print(number_out)
 
 n = 99800
 
-def prime_factors_number(n:int) -> list:
+
+def prime_factors_number(n: int) -> list:
     out = []
     for i in range(2, n + 1):
         while not n % i:
@@ -168,8 +178,9 @@ def prime_factors_number(n:int) -> list:
                 break
     return out
 
-print(n) # 99800
-print(prime_factors_number(n)) # [2, 2, 2, 5, 5, 499]
+
+print(n)  # 99800
+print(prime_factors_number(n))  # [2, 2, 2, 5, 5, 499]
 
 
 # * Задача 105: ________________________________________________
@@ -185,21 +196,21 @@ text = [i for i in text.split() if del_word not in i]
 print(" ".join(text))
 
 
-
-
 # ===================================================================================== Домашняя работа ==========================================================================
 
 # Задача 26: ___________________________________________________________
 # Напишите программу, которая на вход принимает два числа A и B,
 # и возводит число А в целую степень B с помощью рекурсии.
 
-ch = 2
-st = 4
+ch = int(input('Возводим в степень. Введите число, которое будем возводить. Число= '))
+st = int(input('Возводим в степень. Введите степень для числа которое возводим. Степень= '))
+
 
 def degree_recursion(x, y):
     if y > 1:
         return x * degree_recursion(x, y - 1)
     return x
+
 
 print(degree_recursion(ch, st))
 
@@ -209,18 +220,18 @@ print(degree_recursion(ch, st))
 # Из всех арифметических операций допускаются только +1 и -1. Также нельзя использовать циклы.
 
 
+a = int(input('Находим сумму двух целых чисел. Число 1= '))
+b = int(input('Находим сумму двух целых чисел. Число 2= '))
+
+
 def sum_num(A, B):
-    if (B==0):
+    if (B == 0):
         return A
     else:
-        return sum_num(A+1,B-1)
+        return sum_num(A+1, B-1)
 
-a = int(input('Input A>>'))
-print()
-b = int(input('Input B>>'))
-print()
-if (a>=b):
-    print (sum_num(a,b))
+
+if (a >= b):
+    print(sum_num(a, b))
 else:
-    print(sum_num(b,a))
-
+    print(sum_num(b, a))
