@@ -1,55 +1,55 @@
-# # Задача 1: ___________________________________________________________
-# # Создайте список из N натуральных чисел, упорядоченных по возрастанию.
-# # Среди чисел не хватает одного, чтобы выполнить условие A[i] - 1 = A[i - 1].
-# # Найдите это число.
+# Задача 1: ___________________________________________________________
+# Создайте список из N натуральных чисел, упорядоченных по возрастанию.
+# Среди чисел не хватает одного, чтобы выполнить условие A[i] - 1 = A[i - 1].
+# Найдите это число.
 
-# from random import choice
+from random import choice
 
 
-# sl = int(input('Введите длину списка: '))
+sl = int(input('Введите длину списка: '))
 
-# def sl_list(number:int) ->list:
-#     out_list = [x for x in range(number + 1)]
-#     out_list.remove(choice(out_list))
-#     return out_list
-# z = sl_list(sl)
-# print(z)
+def sl_list(number:int) ->list:
+    out_list = [x for x in range(number + 1)]
+    out_list.remove(choice(out_list))
+    return out_list
+z = sl_list(sl)
+print(z)
 
-# def search_pass(in_list):
-#     for i in range(1,len(in_list)):
-#         if in_list[i] - 1 != in_list[i - 1]:
-#             return in_list[i] - 1
-#     return -1
+def search_pass(in_list):
+    for i in range(1,len(in_list)):
+        if in_list[i] - 1 != in_list[i - 1]:
+            return in_list[i] - 1
+    return -1
 
-# print(search_pass(z))
+print(search_pass(z))
 
-# # Задача 2: ___________________________________________________________
-# # Создайте список, в который попадают числа, описывающие возрастающую последовательность. Порядок элементов менять нельзя
+# Задача 2: ___________________________________________________________
+# Создайте список, в который попадают числа, описывающие возрастающую последовательность. Порядок элементов менять нельзя
 
-# from random import choices
+from random import choices
 
-# def random_list_length_user() -> list:
-#     length = int(input('Введите длину списка: '))
-#     sl = choices(range(length * 2), k=length)
-#     return sl
+def random_list_length_user() -> list:
+    length = int(input('Введите длину списка: '))
+    sl = choices(range(length * 2), k=length)
+    return sl
 
-# generated_list = random_list_length_user()
-# print(generated_list)
+generated_list = random_list_length_user()
+print(generated_list)
 
-# def ascending_sequence(in_list: list) -> list:
-#     out_list = []
-#     for i in range(len(in_list)):
-#         temp = in_list[i]
-#         temp_list = [temp]
-#         for j in range(i + 1, len(in_list)):
-#             if in_list[j] > temp:
-#                 temp = in_list[j]
-#                 temp_list.append(temp)
-#         if len(temp_list) > 1:
-#             out_list.append(temp_list)
-#     return out_list
+def ascending_sequence(in_list: list) -> list:
+    out_list = []
+    for i in range(len(in_list)):
+        temp = in_list[i]
+        temp_list = [temp]
+        for j in range(i + 1, len(in_list)):
+            if in_list[j] > temp:
+                temp = in_list[j]
+                temp_list.append(temp)
+        if len(temp_list) > 1:
+            out_list.append(temp_list)
+    return out_list
 
-# print(ascending_sequence(generated_list))
+print(ascending_sequence(generated_list))
 
 
 #__________________________________________________________________________ Домашняя работа __________________________________________________________________________
