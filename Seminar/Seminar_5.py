@@ -1,27 +1,27 @@
 
 # Задача №1: --------------------------------------------------------------------------------------------------------------
 
-# У вас есть код, который вы не можете менять (так часто бывает, когда код в глубине программы используется множество раз и вы не хотите ничего сломать):
+# У вас есть код, который вы не можете менять (так часто бывает, когда код в глубине программы используется множество раз
+# и вы не хотите ничего сломать):
 # transformation = <???>
 # values = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29] # или любой другой список
 # transormed_values = list(map(transformation, values))
 # Единственный способ вашего взаимодействия с этим кодом - посредством задания функции transformation.
-# Однако вы поняли, что для вашей текущей задачи вам не нужно никак преобразовывать список значений, а нужно получить его как есть.
+# Однако вы поняли, что для вашей текущей задачи вам не нужно никак преобразовывать список значений,
+# а нужно получить его как есть.
 # Напишите такое лямбда-выражение transformation, чтобы transformed_values получился копией values.
 
 # Ввод:
-# values = [1, 23, 42, ‘asdfg’]
-# transformed_values = list(map(trasformation, values))
+# values = [1, 23, 42, 'asdfg']
+# transformed_values = list(map(transformed, values))
 # if values == transformed_values:
-#     print(‘ok’)
+#     print('ok')
 # else:
-#     print(‘fail’)
+#     print('fail')
 # Вывод:
 # ok
 
-import math
-from decimal import Decimal
-from math import pi
+
 values = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 transformed_values = list(map(lambda x: x, values))
 if values == transformed_values:
@@ -31,6 +31,9 @@ else:
 
 print(values)
 print(transformed_values)
+
+
+
 
 # Задача №2: --------------------------------------------------------------------------------------------------------------
 
@@ -64,35 +67,7 @@ print(*find_farthest_orbit(orbits))
 
 # Или
 
-
-# S=pi*a*b
-orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
-
-
-def find_farthest_orbit(list_of_orbits):
-    s_max = 0
-    index = 0
-    list_s = []
-
-    def sqare(a, b):
-        return pi * a * b
-
-    for i in range(len(list_of_orbits)):
-        x = list_of_orbits[i][0]
-        y = list_of_orbits[i][1]
-        if x != y:
-            if sqare(x, y) > s_max:
-                s_max = sqare(x, y)
-                index = i
-    list_s.append(pi * list_of_orbits[i][0] * list_of_orbits[i][1])
-
-    return [list_of_orbits[index], s_max]
-
-
-print(find_farthest_orbit(orbits))
-
-# Или
-
+from math import pi
 
 def find_farthest_orbit(list_of_orbits):
     temp_list = ((pi * i[0] * i[1], i[0], i[1])
@@ -154,6 +129,10 @@ print(same_by(lambda x: x % 2, values))
 # Пример:
 # при d = 0.001, π = 3.141    0.1 ≤ d ≤ 0.00000000001
 
+
+import math
+from decimal import Decimal
+from math import pi
 
 number = Decimal(math.pi)
 precision_number = Decimal(input('Введите точность для вывода числа π: '))
