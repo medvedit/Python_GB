@@ -4,7 +4,6 @@ from add_function import add_data
 from search_function import search_data
 from delete_function import del_data
 from editor_function import line_search_editor
-
 import time # .sleep для приостановить выполнение программы на заданное количество секунд.
 
 

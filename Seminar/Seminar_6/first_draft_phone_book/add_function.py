@@ -23,3 +23,4 @@ def save_data_to_file(data_to_save):  # Записываем новый спис
     with open("phone_book.txt", "a", encoding="utf8") as datafile:
         datafile.write(data_to_save)
 
+

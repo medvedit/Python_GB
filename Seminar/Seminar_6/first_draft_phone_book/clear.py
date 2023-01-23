@@ -7,3 +7,4 @@ def clear_screen():  # Очистка консоли
         os.system("clear")  # для Linux & MacOS
     elif platform == "win32" or platform == "cygwin":
         os.system("cls")    # для Windows
+

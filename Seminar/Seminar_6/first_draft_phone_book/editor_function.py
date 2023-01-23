@@ -5,7 +5,6 @@ number_global = 0
 count_str = print_data()
 
 
-
 def line_search_editor():
     global number_global
     while True:

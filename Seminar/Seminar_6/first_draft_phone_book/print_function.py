@@ -24,3 +24,4 @@ def output_data_string(data_print:str):  # Форматирование выво
     template = "{0:<33} Тел.: {1:<13}"
     print(template.format(
         parse_data[0]+' ' + parse_data[1]+' '+parse_data[2], parse_data[3]))
+

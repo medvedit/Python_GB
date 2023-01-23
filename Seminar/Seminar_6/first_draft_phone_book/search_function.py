@@ -28,4 +28,5 @@ def output_data_string(data_print): # Создание форматирован�
         parse_data[0]+' ' + parse_data[1]+' '+parse_data[2], parse_data[3]))
 
 
+
 from main import clear_screen

@@ -88,5 +88,4 @@ def del_data_by_search():  # Удаление записи через поиск
                     data_file.write(phone_data)
 
 
-
 from main import clear_screen
