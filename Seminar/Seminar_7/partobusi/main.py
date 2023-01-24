@@ -1,35 +1,39 @@
-from menu import Menu
+# from menu import Menu
 import function as fn
+import clear as cl
+import time
 
-# if __name__ == "__main__":
-#     # основной блок
-menuitems = [
-        ("1", "Вывод автобусов"),
-        ("2", "Добавление автобуса"),
-        ("3", "Вывод водителей"),
-        ("4", "Добавление водителей"),
-        ("5", "Вывод маршрута"),
-        ("6", "Добавление маршрута"),
-        ("7", "Выход", lambda: exit())]
 
-menu = Menu(menuitems)
-    # menu.run('>:')
 
-for i in menuitems:
-    print(i[0],i[1])
-
-text = input("Введите номер: ")
-if text == '1':
-    print(fn.print_bus())
-elif text == '2':
-    fn.add_bus()
-elif text == '3':
-    print(fn.print_driver())
-elif text == '4':
-    fn.add_driver()
-elif text == '5':
-    print(fn.print_route())
-elif text == '6':
-    fn.add_route()
-elif text == '7':
-    exit()
+if __name__ == "__main__":   # основное меню
+    menu = (f"Автопарк\n\n"
+            "Список команд:\n"
+            "1 - Вывод автобусов\n"
+            "2 - Добавление автобуса\n"
+            "3 - Вывод водителей\n"
+            "4 - Добавление водителей\n"
+            "5 - Вывод маршрута\n"
+            "6 - Добавление маршрута\n"
+            "7 - Выход\n")
+    while True:
+        cl.clear_screen()
+        print(menu)
+        answer = input("Введите номер команды ->:").upper()
+        match answer:
+            case "1":# Печать автобусов
+                print(fn.print_bus())
+            case "2":# Добавление автобусов
+                fn.add_bus()
+            case "3":# Печать водителей
+                print(fn.print_driver())
+            case "4":# Добавление водителей
+                fn.add_driver()
+            case "5":# Печать маршрутов
+                print(fn.print_route())
+            case "6":# Добавление маршрутов
+                fn.add_route()
+            case "7":# выход
+                exit(0)
+            case _:
+                print("Неверный ввод. Повторите ввод: ")
+                time.sleep(1) # задержка для повторного ввода в 1сек.
