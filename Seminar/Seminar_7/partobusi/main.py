@@ -1,5 +1,4 @@
-# from menu import Menu
-import function as fn
+import main_function as fn
 import clear as cl
 import time
 
