@@ -1,8 +1,7 @@
+import main_txt_function as fn
+from functools import reduce
 import clear as cl
 import time
-import main_txt_function as fn
-import sys
-from functools import reduce
 
 
 
@@ -35,40 +34,19 @@ def route_number_search():
     route_number_search_data()
 
 
-# def route_number_search_data():
-#     while True:
-#         cl.clear_screen()
-#         route_list = fn.reading_from_file('route.txt')
-#         print(route_list)
-#         input()
-#         out_list = []
-#         route = input('Нажмите ENTER для возврата в меню\nили введите номер маршрута ->:')
-#         if route == '':
-#             return
-#         for i in range(len(route_list)):
-#             temp_list_route = []
-#             for j in route_list[i]:
-#                 temp_list_route.append(j)
-#             if temp_list_route[4] != route:
-#                 print('Такого маршрута нет')
-#                 return
-#             elif temp_list_route[4] == route:
-#                 id = temp_list_route[0]
-#                 out_list.append(temp_list_route)
-#                 return id, out_list
 
 def route_number_search_data():
     while True:
-            # cl.clear_screen()
+            cl.clear_screen()
             route_list = fn.reading_from_file('route.txt')
             # print(route_list)
             # input()
             route_list1 = len(route_list)
             out_list = []
             cou = 0
-            route = input('Нажмите ENTER для возврата в меню\nили введите номер маршрута ->:')
-            # if route == '':
-            #     return
+            route = input('Нажмите ENTER для возврата в меню,\nИЛИ введите номер маршрута ->:')
+            if route == '':
+                return
             for i in range(len(route_list)):
                 cou +=1
                 temp_list_route = []
@@ -78,10 +56,8 @@ def route_number_search_data():
                 if temp_list_route[4] == route:
                     id = temp_list_route[0]
                     out_list.append(temp_list_route)
-                    # return id, out_list
                 elif out_list == [] and cou >= route_list1:
-                    input('Такого маршрута нет')
-                    # time.sleep(1)
+                    input('Такого маршрута нет\nНажмите ENTER для для повтора ввода >>>:')
                     return
 
             bus_list = fn.reading_from_file('bus.txt')
@@ -107,17 +83,11 @@ def route_number_search_data():
 
 
 
-
 def print_driver_file(data):  # Форматирование данных на печать. Таблица.
     cl.clear_screen()
-    # output_data = fn.reading_from_file(data_file)
     print('| id водителя |\tФамилия    |\t     Имя    |\t Отчество     |\t№ маршрута |\t маршрут автобуса |\tгос номер |\tмодель |\tсостояние |\tстаж вождения |')
     print('-'*87)
-    # print(data)
-    # input()
-    # for num_str,data in enumerate(data_file):
-    #     num_str = num_str+1
     print("| {0:^1} | {1:>11} | {2:>14} |{3:>15} |{4:>16} |{6:>14} |{7:>14} |{8:>14} |{9:>14} |"\
             .format(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]))
     print()
-    input('Нажмите ENTER для возврата в меню >>>')
+    input('Нажмите ENTER для возврата в меню >>>:')
