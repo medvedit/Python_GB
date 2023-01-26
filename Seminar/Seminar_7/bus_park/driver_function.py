@@ -24,7 +24,7 @@ def add_driver_file(data): # Добавление данных в driver.txt
         new_driver_list = []
         print(fn.print_driver())
         print()
-        print('Сейчас Вам предложат ввести данные\n'\
+        print('Сейчас Вам предложат ввести данные.\n'\
                 'Таблицу с образцом ввода данных Вы видите выше\n'\
                 '>>> Для выхода нажмите Enter <<<\n')
         id_driver = str(input('id водителя ->:  '))
