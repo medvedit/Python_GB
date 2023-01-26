@@ -25,69 +25,79 @@ def second_menu():
 
 
 def search_surname():
-    search_surname_data('route.txt')
+    print('не реализовал, пока..')
+    time.sleep(1)
+    # search_surname_data('route.txt')
 
 def search_id():
     search_id_data('route.txt')
 
 def route_number_search():
-    route_number_search_data()
+    route_number_search_data() # поиск по номеру маршрута.
 
 
 
-def route_number_search_data():
+def route_number_search_data(): # поиск по номеру маршрута.
     while True:
             cl.clear_screen()
-            route_list = fn.reading_from_file('route.txt')
-            # print(route_list)
-            # input()
-            route_list1 = len(route_list)
+            route_list = fn.reading_from_file('route.txt') # получение данных из таблицы route.txt
+            route_list_len = len(route_list) # узнал количество вложений в списке
             out_list = []
-            cou = 0
+            count = 0
             route = input('Нажмите ENTER для возврата в меню,\nИЛИ введите номер маршрута ->:')
             if route == '':
-                return
+                return # выводит для повтора ввода маршрута
             for i in range(len(route_list)):
-                cou +=1
+                count +=1 # считаю количество проходов, списков в списке
                 temp_list_route = []
                 for j in route_list[i]:
-                    # cou += 1
-                    temp_list_route.append(j)
-                if temp_list_route[4] == route:
-                    id = temp_list_route[0]
-                    out_list.append(temp_list_route)
-                elif out_list == [] and cou >= route_list1:
+                    temp_list_route.append(j) # раскрываю внутренние списки, каждое вложение в начальном списке.
+                if temp_list_route[4] == route: # если на позиции маршрут из входящих данных совпадает с введенным, то строка 57.
+                    id = temp_list_route[0] # находим и сохраняем id водителя из найденного по номеру маршрута,
+                                            # верного, нужного нам списка.
+                                            # Далее по коду, с остальными двумя таблицами буду работать по id водителя.
+                    out_list.append(temp_list_route) # сохраняем список в новый.
+                elif out_list == [] and count >= route_list_len: # условие - при отсутствии во восходящих данных
+                                            # необходимого нам маршрута,то вернемся на шаг назад, для повторного ввода маршрута.
                     input('Такого маршрута нет\nНажмите ENTER для для повтора ввода >>>:')
-                    return
+                    return # шаг назад.
 
-            bus_list = fn.reading_from_file('bus.txt')
-            for i in range(len(bus_list)):
+            bus_list = fn.reading_from_file('bus.txt') # получение данных из таблицы bus.txt .
+            for i in range(len(bus_list)): # проходим по каждому вложению в список.
                 temp_list_bus = []
-                for j in bus_list[i]:
+                for j in bus_list[i]: # заглядываем в каждый вложенный список списков.
                     temp_list_bus.append(j)
-                if temp_list_bus[0] == id:
-                    out_list.append(temp_list_bus)
+                if temp_list_bus[0] == id: # если id водителя, из водящих данных (а это таблица и ее столбцы не изменяемы,
+                                            # предположим) совпадает, с найденным ранее (первая часть кода)
+                                            # id водителя через поиск маршрута, то ..
+                    out_list.append(temp_list_bus) # найденный список добавляем к найденному ранее, в конец списка.
 
-            driver_list = fn.reading_from_file('driver.txt')
+            driver_list = fn.reading_from_file('driver.txt') # получение данных из таблицы driver.txt
             for i in range(len(driver_list)):
                 temp_list_driver = []
                 for j in driver_list[i]:
                     temp_list_driver.append(j)
-                if temp_list_driver[0] == id:
-                    out_list.append(temp_list_driver)
-                    e = reduce(lambda x,y: x+y,out_list)
-                    new_list = []
-                    [new_list.append(item) for item in e if item not in new_list]
-                    print_driver_file(new_list)
+                if temp_list_driver[0] == id: # аналогично, находим нужный id.
+                    out_list.append(temp_list_driver) # и добавляем в конец.
+                    unique_list = reduce(lambda x,y: x+y,out_list) # Создаем уникальность списка. Удаляем повторы данных.
+                        # reduce - это функция из встроенного модуля functools -> УМЕНЬШАТЬ.
+                    list_print = []
+                    [list_print.append(item) for item in unique_list if item not in list_print] # Создаем уникальность списка,
+                                                                                                # удаляем повторы данных.
+                    print_driver_file(list_print)
 
 
 
 
 def print_driver_file(data):  # Форматирование данных на печать. Таблица.
     cl.clear_screen()
-    print('| id водителя |\tФамилия    |\t     Имя    |\t Отчество     |\t№ маршрута |\t маршрут автобуса |\tгос номер |\tмодель |\tсостояние |\tстаж вождения |')
-    print('-'*87)
-    print("| {0:^1} | {1:>11} | {2:>14} |{3:>15} |{4:>16} |{6:>14} |{7:>14} |{8:>14} |{9:>14} |"\
+    print('|id|\t   Фамилия |\t       Имя |\t    Отчество | № марш.|\t                    '\
+                    'маршрут автобуса |\tгос номер |    модель |  состояние | стаж вождения |')
+    print('-'*156)
+    print("|{0:>2}| {1:>13} | {2:>13} |{3:>16} |{4:>7} | {5:>36} |{6:>11} |{7:>10} |{8:>11} |{9:>14} |"\
             .format(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]))
     print()
     input('Нажмите ENTER для возврата в меню >>>:')
+
+
+
