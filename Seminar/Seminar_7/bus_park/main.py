@@ -36,6 +36,7 @@ if __name__ == "__main__":   # основное меню
             case "7": # Поиск по данным
                 sf.second_menu()
             case "8":# выход
+                cl.clear_screen()
                 exit(0)
             case _:
                 print("Неверный ввод. Повторите ввод: ")
