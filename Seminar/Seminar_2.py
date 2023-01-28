@@ -29,7 +29,7 @@ num_fb = int(input('Введите число фибоначчи: '))
 
 
 def fibonache(n):
-    # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377 кажде число фибоначчи
+    # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377 каждое число фибоначчи
     # 1  2  2  4  5  6  7  8   9   10  11  12  13   14   15  порядковый номер числа фибоначчи
     if n == 0:
         return 1
@@ -185,7 +185,7 @@ def Zero_Or_One(num_array):
     if num0 > num1:
         print(f'{number} -> {number_array} \nЦифры 1 меньше, её всего {num1}шт.')
     elif num0 == num1:
-        print(f'{number} -> {number_array} \nКолличество 0 и 1 совпадает, их по {num0}шт.')
+        print(f'{number} -> {number_array} \nКоличество 0 и 1 совпадает, их по {num0}шт.')
     else:
         print(f'{number} -> {number_array} \nЦифры 0 меньше, её всего {num0}шт.')
 
