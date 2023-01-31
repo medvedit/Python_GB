@@ -4,7 +4,7 @@ from bot_commander import *
 import emoji
 
 
-app = ApplicationBuilder().token("6089710413:AAEUiTHzXCYM-O03trnXs3g3nE4CEkFZnI0").build()
+app = ApplicationBuilder().token("Token").build()
 
 
 app.add_handler(CommandHandler("start", start_command))
