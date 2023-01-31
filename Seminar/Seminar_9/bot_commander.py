@@ -19,5 +19,4 @@ async def calculator_command(update: Update, context: ContextTypes.DEFAULT_TYPE)
     msg = update.message.text
     items = msg.split()
     x, y = int(items[1]), int(items[2])
-    # y = int(items[2])
     await update.message.reply_text(f'{x} + {y} = {x+y}')
