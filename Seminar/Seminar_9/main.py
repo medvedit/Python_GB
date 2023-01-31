@@ -1,13 +1,16 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from bot_commander import *
+import emoji
+
+app = ApplicationBuilder().token("6089710413:AAEUiTHzXCYM-O03trnXs3g3nE4CEkFZnI0").build()
 
 
-async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
+app.add_handler(CommandHandler("start", start_command))
+app.add_handler(CommandHandler("hi", hi_command))
+app.add_handler(CommandHandler("help", help_command))
+app.add_handler(CommandHandler("cal", calculator_command))
 
-
-app = ApplicationBuilder().token("YOUR TOKEN HERE").build()
-
-app.add_handler(CommandHandler("hello", hello))
+print(f'Сервер запущен ' + emoji.emojize(':dizzy:'))
 
 app.run_polling()
