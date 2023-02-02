@@ -15,6 +15,7 @@ app.add_handler(CommandHandler("hi", hello_command))
 app.add_handler(CommandHandler("echo", echo_command))
 app.add_handler(CommandHandler("dt", time_command))
 app.add_handler(CommandHandler("tem", tem_command))
+app.add_handler(CommandHandler("call", call_command))
 
 
 print(f'Server start ' + emoji.emojize(':check_mark_button:'))
