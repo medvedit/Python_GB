@@ -16,6 +16,8 @@ app.add_handler(CommandHandler("echo", echo_command))
 app.add_handler(CommandHandler("dt", time_command))
 app.add_handler(CommandHandler("tem", tem_command))
 app.add_handler(CommandHandler("call", call_command))
+app.add_handler(CommandHandler("new", new_year_command))
+app.add_handler(CommandHandler("text", open_text_command))
 
 
 print(f'Server start ' + emoji.emojize(':check_mark_button:'))
