@@ -5,9 +5,11 @@ from translator_deyweek import *
 from function_calculator import *
 from new_year_function import *
 from text_function import *
+from moon_function import *
 import datetime
 import emoji
 import weather
+
 
 
 
@@ -16,6 +18,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
                                     'Вы видите весь список возможных команд: \n/hi -> Я здороваюсь ' + emoji.emojize('🤝\n') +
                                     '/echo -> Буду повторять все Ваши фразы ' + emoji.emojize('📣\n') +
                                     '/dt -> Покажу день недели, дату и время ' + emoji.emojize('📅\n') +
+                                    '/moon -> Расскажу о фазах луны ' + emoji.emojize('🌖\n') +
                                     '/tem -> Покажу температуру воздуха в г.Киров ' + emoji.emojize('🌡️\n')+
                                     '/call -> Я калькулятор' + emoji.emojize('🧮\n') +
                                     '/new -> Посчитаю время до нового года' + emoji.emojize('🌲\n')+
@@ -91,6 +94,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'/hi -> Здороваюсь.\n'+
                                     '/dt -> День недели, дата, время.\n'+
+                                    '/moon -> Фазы луны.\n'
                                     '/echo -> Повторю Вашу фразу.\n'+
                                     '/call -> Калькулятор.\n'+
                                     '/tem -> Температура воздуха в г.Киров\n'+
@@ -109,3 +113,9 @@ async def new_year_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def open_text_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(open_text())
+
+
+async def moon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    log(update, context)
+    await update.message.reply_text(f'Сегодня {moon_day()} лунный день.\n'+
+                                    f'{moon_age(moon)}\n{moon_phase(moon)}')
