@@ -14,15 +14,16 @@ import weather
 
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    log(update, context)
     await update.message.reply_text(f'Здравствуй {update.effective_user.first_name} ' + emoji.emojize('🤓\n') +
                                     'Вы видите весь список возможных команд: \n/hi -> Я здороваюсь ' + emoji.emojize('🤝\n') +
-                                    '/echo -> Буду повторять все Ваши фразы ' + emoji.emojize('📣\n') +
                                     '/dt -> Покажу день недели, дату и время ' + emoji.emojize('📅\n') +
-                                    '/moon -> Расскажу о фазах луны ' + emoji.emojize('🌖\n') +
                                     '/tem -> Покажу температуру воздуха в г.Киров ' + emoji.emojize('🌡️\n')+
-                                    '/call -> Я калькулятор' + emoji.emojize('🧮\n') +
+                                    '/moon -> Расскажу о фазах луны ' + emoji.emojize('🌖\n') +
                                     '/new -> Посчитаю время до нового года' + emoji.emojize('🌲\n')+
-                                    '/text -> Мудрость дня' + emoji.emojize('📑\n')+
+                                    '/echo -> Буду повторять все Ваши фразы ' + emoji.emojize('📣\n') +
+                                    '/call -> Я калькулятор' + emoji.emojize('🧮\n') +
+                                    '/ph -> Мудрость дня' + emoji.emojize('📑\n')+
                                     '/help -> Окажу посильную мне помощь ' + emoji.emojize('⁉️'))
 
 
@@ -94,12 +95,12 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'/hi -> Здороваюсь.\n'+
                                     '/dt -> День недели, дата, время.\n'+
+                                    '/tem -> Температура воздуха в г.Киров\n'+
                                     '/moon -> Фазы луны.\n'
+                                    '/new -> Количество дней до нового года\n'+
                                     '/echo -> Повторю Вашу фразу.\n'+
                                     '/call -> Калькулятор.\n'+
-                                    '/tem -> Температура воздуха в г.Киров\n'+
-                                    '/new -> Количество дней до нового года\n'+
-                                    '/text -> Мудрость дня')
+                                    '/ph -> Мудрость дня')
 
 
 
@@ -118,4 +119,4 @@ async def open_text_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def moon_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
     await update.message.reply_text(f'Сегодня {moon_day()} лунный день.\n'+
-                                    f'{moon_age(moon)}\n{moon_phase(moon)}')
+                                    f'{moon_age(moon)}\n{percent_moon(moon)}\n{moon_phase(moon)}')
