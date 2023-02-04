@@ -5,7 +5,7 @@ from spy import *
 import emoji
 
 
-app = ApplicationBuilder().token("5691568503:AAFOTLoNs03dlDz--bSrXSmtoRxQYw_uAW0").build()
+app = ApplicationBuilder().token("TOKEN").build()
 
 
 
@@ -17,7 +17,7 @@ app.add_handler(CommandHandler("dt", time_command))
 app.add_handler(CommandHandler("tem", tem_command))
 app.add_handler(CommandHandler("call", call_command))
 app.add_handler(CommandHandler("new", new_year_command))
-app.add_handler(CommandHandler("text", open_text_command))
+app.add_handler(CommandHandler("ph", open_text_command))
 app.add_handler(CommandHandler("moon", moon_command))
 
 
