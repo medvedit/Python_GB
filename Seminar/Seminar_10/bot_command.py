@@ -11,6 +11,8 @@ from time import sleep
 import datetime
 import emoji
 import weather
+import requests
+from weather_update.weather import get_weather
 
 
 
@@ -86,10 +88,12 @@ async def time_command(update: Update, context: CallbackContext):
 async def tem_command(update: Update, context: CallbackContext):
     '''Температура воздуха(город указан в коде) + логирование'''
     log(update, context)
-    await update.message.reply_text(f'Температура воздуха\nв городе Киров: '
-                    f'{weather.forecast("Kirov", unit=weather.CELSIUS).tomorrow[datetime.datetime.today().strftime("%H:%M")].temp}'+
-                        emoji.emojize('🌡️'))
-
+    '''Закомментированый ниже код не верно показывает температуру. Позже его изучу.'''
+    try:
+        weather = get_weather("Kirov,RU")
+        await update.message.reply_text(f"Температура воздуха\nв городе Киров: {weather['main']['temp']}°C " + emoji.emojize('🌡️\n'))
+    except:
+        await update.message.reply_text(f'Сервер не всегда работает корректно. Попробуйте повторить ввод позже.')
 
 
 
