@@ -60,21 +60,21 @@ def moon_age():  # Функция вывода возраста луны в бо
 
 def moon_phase(): # Функция вывода фазы луны относительно лунного дня.
     day = moon_day()
-    if day > 29 or day > 0 and day < 2:
+    if day >= 29 or day > 0 and day < 2:
         return 'Фаза: Новолуние. ' + emoji.emojize('🌑')
-    if day > 2 and day < 6:
+    if day >= 2 and day < 6:
         return 'Фаза: Между новолунием и первой четвертью. ' + emoji.emojize('🌒')
-    if day > 6 and day < 10:
+    if day >= 6 and day < 10:
         return 'Фаза: Первая четверть. ' + emoji.emojize('🌓')
-    if day > 10 and day < 13:
+    if day >= 10 and day < 13:
         return 'Фаза: Между первой четвертью и полнолунием. ' + emoji.emojize('🌔')
-    if day > 13 and day < 17:
+    if day >= 13 and day < 17:
         return 'Фаза: Полнолуние. ' + emoji.emojize('🌕')
-    if day > 17 and day < 21:
+    if day >= 17 and day < 21:
         return 'Фаза: Между полнолунием и третьей четвертью. ' + emoji.emojize('🌖')
-    if day > 21 and day < 24:
+    if day >= 21 and day < 24:
         return 'Фаза: Третья четверть. ' + emoji.emojize('🌗')
-    if day > 24 and day < 29:
+    if day >= 24 and day < 29:
         return 'Фаза: Между третьей четвертью и новолунием. ' + emoji.emojize('🌘')
 
 
